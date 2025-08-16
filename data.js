@@ -329,8 +329,8 @@ const DATA = {
         "level": 2
       },
       {
-        "raw": "Poison Boost +1",
-        "name": "Poison Boost",
+        "raw": "Poison Duration Up +1",
+        "name": "Poison Duration Up",
         "level": 1
       },
       {
@@ -491,13 +491,18 @@ const DATA = {
         "level": 3
       },
       {
+        "raw": "Master's Touch +1",
+        "name": "Master's Touch",
+        "level": 1
+      },
+      {
         "raw": "Mind's Eye +3",
         "name": "Mind's Eye",
         "level": 3
       },
       {
-        "raw": "Normal/Rapid Up +1",
-        "name": "Normal/Rapid Up",
+        "raw": "Normal Shots +1",
+        "name": "Normal Shots",
         "level": 1
       },
       {
@@ -511,14 +516,14 @@ const DATA = {
         "level": 3
       },
       {
-        "raw": "Paralysis Attack +3",
-        "name": "Paralysis Attack",
-        "level": 3
-      },
-      {
         "raw": "Paralysis Functionality +1",
         "name": "Paralysis Functionality",
         "level": 1
+      },
+      {
+        "raw": "Paralysis Attack +3",
+        "name": "Paralysis Attack",
+        "level": 3
       },
       {
         "raw": "Piercing Shot +1",
@@ -710,13 +715,18 @@ const DATA = {
     ],
     "Group 5": [
       {
+        "raw": "Adaptability +1",
+        "name": "Adaptability",
+        "level": 1
+      },
+      {
         "raw": "Antivirus +1",
         "name": "Antivirus",
         "level": 1
       },
       {
-        "raw": "Aquatic/Amphibious +1",
-        "name": "Aquatic/Amphibious",
+        "raw": "Aquatic/Oilsilt Mobility +1",
+        "name": "Aquatic/Oilsilt Mobility",
         "level": 1
       },
       {
@@ -725,8 +735,8 @@ const DATA = {
         "level": 1
       },
       {
-        "raw": "Blastblight Resistance +1",
-        "name": "Blastblight Resistance",
+        "raw": "Blast Resistance +1",
+        "name": "Blast Resistance",
         "level": 1
       },
       {
@@ -755,11 +765,6 @@ const DATA = {
         "level": 2
       },
       {
-        "raw": "Defense Down Resistance +1",
-        "name": "Defense Down Resistance",
-        "level": 1
-      },
-      {
         "raw": "Divine Blessing +1",
         "name": "Divine Blessing",
         "level": 1
@@ -770,16 +775,6 @@ const DATA = {
         "level": 1
       },
       {
-        "raw": "Environmental Adaptability +1",
-        "name": "Environmental Adaptability",
-        "level": 1
-      },
-      {
-        "raw": "Environmental Exploiter +1",
-        "name": "Environmental Exploiter",
-        "level": 1
-      },
-      {
         "raw": "Fire Resistance +1",
         "name": "Fire Resistance",
         "level": 1
@@ -787,11 +782,6 @@ const DATA = {
       {
         "raw": "Flinch Free +1",
         "name": "Flinch Free",
-        "level": 1
-      },
-      {
-        "raw": "Foul Resistance +1",
-        "name": "Foul Resistance",
         "level": 1
       },
       {
@@ -817,6 +807,11 @@ const DATA = {
       {
         "raw": "Intimidator +1",
         "name": "Intimidator",
+        "level": 1
+      },
+      {
+        "raw": "Iron Skin +1",
+        "name": "Iron Skin",
         "level": 1
       },
       {
@@ -865,8 +860,18 @@ const DATA = {
         "level": 1
       },
       {
+        "raw": "Stench Resistance +1",
+        "name": "Stench Resistance",
+        "level": 1
+      },
+      {
         "raw": "Stun Resistance +1",
         "name": "Stun Resistance",
+        "level": 1
+      },
+      {
+        "raw": "Survival Expert +1",
+        "name": "Survival Expert",
         "level": 1
       },
       {
@@ -897,13 +902,18 @@ const DATA = {
     ],
     "Group 6": [
       {
+        "raw": "Adaptability +2",
+        "name": "Adaptability",
+        "level": 2
+      },
+      {
         "raw": "Antivirus +2",
         "name": "Antivirus",
         "level": 2
       },
       {
-        "raw": "Aquatic/Amphibious +2",
-        "name": "Aquatic/Amphibious",
+        "raw": "Aquatic/Oilsilt Mobility +2",
+        "name": "Aquatic/Oilsilt Mobility",
         "level": 2
       },
       {
@@ -912,8 +922,8 @@ const DATA = {
         "level": 2
       },
       {
-        "raw": "Blastblight Resistance +2",
-        "name": "Blastblight Resistance",
+        "raw": "Blast Resistance +2",
+        "name": "Blast Resistance",
         "level": 2
       },
       {
@@ -927,24 +937,19 @@ const DATA = {
         "level": 2
       },
       {
-        "raw": "Botanist +2",
+        "raw": "Botanist +3",
         "name": "Botanist",
-        "level": 2
+        "level": 3
       },
       {
-        "raw": "Constitution +2",
+        "raw": "Constitution +3",
         "name": "Constitution",
-        "level": 2
+        "level": 3
       },
       {
-        "raw": "Defense Boost +2",
+        "raw": "Defense Boost +3",
         "name": "Defense Boost",
-        "level": 2
-      },
-      {
-        "raw": "Defense Down Resistance +2",
-        "name": "Defense Down Resistance",
-        "level": 2
+        "level": 3
       },
       {
         "raw": "Divine Blessing +2",
@@ -957,16 +962,6 @@ const DATA = {
         "level": 2
       },
       {
-        "raw": "Environmental Adaptability +2",
-        "name": "Environmental Adaptability",
-        "level": 2
-      },
-      {
-        "raw": "Environmental Exploiter +2",
-        "name": "Environmental Exploiter",
-        "level": 2
-      },
-      {
         "raw": "Fire Resistance +2",
         "name": "Fire Resistance",
         "level": 2
@@ -974,11 +969,6 @@ const DATA = {
       {
         "raw": "Flinch Free +2",
         "name": "Flinch Free",
-        "level": 2
-      },
-      {
-        "raw": "Foul Resistance +2",
-        "name": "Foul Resistance",
         "level": 2
       },
       {
@@ -1004,6 +994,11 @@ const DATA = {
       {
         "raw": "Intimidator +2",
         "name": "Intimidator",
+        "level": 2
+      },
+      {
+        "raw": "Iron Skin +2",
+        "name": "Iron Skin",
         "level": 2
       },
       {
@@ -1052,8 +1047,18 @@ const DATA = {
         "level": 2
       },
       {
+        "raw": "Stench Resistance +2",
+        "name": "Stench Resistance",
+        "level": 2
+      },
+      {
         "raw": "Stun Resistance +2",
         "name": "Stun Resistance",
+        "level": 2
+      },
+      {
+        "raw": "Survival Expert +2",
+        "name": "Survival Expert",
         "level": 2
       },
       {
@@ -1072,7 +1077,7 @@ const DATA = {
         "level": 2
       },
       {
-        "raw": "Wide-Range +2",
+        "raw": "Wide-Range +3",
         "name": "Wide-Range",
         "level": 2
       },
@@ -1094,8 +1099,8 @@ const DATA = {
         "level": 3
       },
       {
-        "raw": "Blastblight Resistance +3",
-        "name": "Blastblight Resistance",
+        "raw": "Blast Resistance +3",
+        "name": "Blast Resistance",
         "level": 3
       },
       {
@@ -1124,11 +1129,6 @@ const DATA = {
         "level": 4
       },
       {
-        "raw": "Defense Down Resistance +3",
-        "name": "Defense Down Resistance",
-        "level": 3
-      },
-      {
         "raw": "Divine Blessing +3",
         "name": "Divine Blessing",
         "level": 3
@@ -1136,11 +1136,6 @@ const DATA = {
       {
         "raw": "Dragon Resistance +3",
         "name": "Dragon Resistance",
-        "level": 3
-      },
-      {
-        "raw": "Environmental Exploiter +3",
-        "name": "Environmental Exploiter",
         "level": 3
       },
       {
@@ -1176,6 +1171,11 @@ const DATA = {
       {
         "raw": "Intimidator +3",
         "name": "Intimidator",
+        "level": 3
+      },
+      {
+        "raw": "Iron Skin +3",
+        "name": "Iron Skin",
         "level": 3
       },
       {
@@ -1229,6 +1229,11 @@ const DATA = {
         "level": 3
       },
       {
+        "raw": "Survival Expert +3",
+        "name": "Survival Expert",
+        "level": 3
+      },
+      {
         "raw": "Thunder Resistance +3",
         "name": "Thunder Resistance",
         "level": 3
@@ -1268,6 +1273,11 @@ const DATA = {
       {
         "raw": "Coalescence +1",
         "name": "Coalescence",
+        "level": 1
+      },
+      {
+        "raw": "Counterstrike +1",
+        "name": "Counterstrike",
         "level": 1
       },
       {
@@ -1325,11 +1335,6 @@ const DATA = {
         "name": "Tool Specialist",
         "level": 2
       },
-      {
-        "raw": "Counterstrike +1",
-        "name": "Counterstrike",
-        "level": 1
-      }
     ],
     "Group 9": [
       {
@@ -1345,6 +1350,11 @@ const DATA = {
       {
         "raw": "Coalescence +2",
         "name": "Coalescence",
+        "level": 2
+      },
+      {
+        "raw": "Counterstrike +2",
+        "name": "Counterstrike",
         "level": 2
       },
       {
@@ -1402,11 +1412,6 @@ const DATA = {
         "name": "Tool Specialist",
         "level": 3
       },
-      {
-        "raw": "Counterstrike +2",
-        "name": "Counterstrike",
-        "level": 2
-      }
     ],
     "Group 10": [
       {
@@ -1425,13 +1430,13 @@ const DATA = {
         "level": 1
       },
       {
-        "raw": "Elemental Conversion +1",
-        "name": "Elemental Conversion",
+        "raw": "Convert Element +1",
+        "name": "Convert Element",
         "level": 1
       },
       {
-        "raw": "Elemental Exploit +1",
-        "name": "Elemental Exploit",
+        "raw": "Elemental Absorption +1",
+        "name": "Elemental Absorption",
         "level": 1
       },
       {
@@ -1440,13 +1445,13 @@ const DATA = {
         "level": 1
       },
       {
-        "raw": "Latent Power +1",
-        "name": "Latent Power",
+        "raw": "Foray +1",
+        "name": "Foray",
         "level": 1
       },
       {
-        "raw": "Offensive Guard +1",
-        "name": "Offensive Guard",
+        "raw": "Latent Power +1",
+        "name": "Latent Power",
         "level": 1
       },
       {
@@ -1789,600 +1794,5 @@ const DATA = {
         "W①①①"
       ]
     }
-  ],
-  "levelsByName": {
-    "Adrenaline Rush": [
-      1
-    ],
-    "Agitator": [
-      1
-    ],
-    "Airborne": [
-      1
-    ],
-    "Ambush": [
-      1,
-      2
-    ],
-    "Antivirus": [
-      1,
-      2,
-      3
-    ],
-    "Aquatic/Amphibious": [
-      1,
-      2
-    ],
-    "Artillery": [
-      1,
-      2,
-      3
-    ],
-    "Attack Boost": [
-      1,
-      2,
-      3
-    ],
-    "Ballistics": [
-      1,
-      2,
-      3
-    ],
-    "Bind Resistance": [
-      1,
-      2,
-      3
-    ],
-    "Blast Attack": [
-      1,
-      2,
-      3
-    ],
-    "Blast Functionality": [
-      1
-    ],
-    "Blastblight Resistance": [
-      1,
-      2,
-      3
-    ],
-    "Bleeding Resistance": [
-      1,
-      2,
-      3
-    ],
-    "Blight Resistance": [
-      1,
-      2
-    ],
-    "Bludgeoner": [
-      1,
-      2,
-      3
-    ],
-    "Bombardier": [
-      1,
-      2,
-      3
-    ],
-    "Botanist": [
-      2,
-      4
-    ],
-    "Burst": [
-      1
-    ],
-    "Charge Master": [
-      1,
-      2,
-      3
-    ],
-    "Charge Up": [
-      1
-    ],
-    "Coalescence": [
-      1,
-      2
-    ],
-    "Constitution": [
-      2,
-      4
-    ],
-    "Counterstrike": [
-      1,
-      2
-    ],
-    "Critical Boost": [
-      1
-    ],
-    "Critical Draw": [
-      1,
-      2,
-      3
-    ],
-    "Critical Element": [
-      1,
-      2,
-      3
-    ],
-    "Critical Eye": [
-      1,
-      2,
-      3
-    ],
-    "Critical Status": [
-      1,
-      2,
-      3
-    ],
-    "Defense Boost": [
-      2,
-      4
-    ],
-    "Defense Down Resistance": [
-      1,
-      2,
-      3
-    ],
-    "Divine Blessing": [
-      1,
-      2,
-      3
-    ],
-    "Dragon Attack": [
-      1,
-      2,
-      3
-    ],
-    "Dragon Resistance": [
-      1,
-      2,
-      3
-    ],
-    "Earplugs": [
-      1,
-      2
-    ],
-    "Elemental Conversion": [
-      1
-    ],
-    "Elemental Exploit": [
-      1
-    ],
-    "Environmental Adaptability": [
-      1,
-      2
-    ],
-    "Environmental Exploiter": [
-      1,
-      2,
-      3
-    ],
-    "Evade Extender": [
-      1,
-      2
-    ],
-    "Evade Window": [
-      2,
-      3
-    ],
-    "Exhaust Functionality": [
-      1
-    ],
-    "Fire Attack": [
-      1,
-      2,
-      3
-    ],
-    "Fire Resistance": [
-      1,
-      2,
-      3
-    ],
-    "Flayer": [
-      1
-    ],
-    "Flinch Free": [
-      1,
-      2,
-      3
-    ],
-    "Focus": [
-      1,
-      2,
-      3
-    ],
-    "Foul Resistance": [
-      1,
-      2
-    ],
-    "Free Meal": [
-      1,
-      2,
-      3
-    ],
-    "Geologist": [
-      1,
-      2,
-      3
-    ],
-    "Guard": [
-      1,
-      2,
-      3
-    ],
-    "Guard Up": [
-      1,
-      2,
-      3
-    ],
-    "Handicraft": [
-      1,
-      2,
-      3
-    ],
-    "Heroics": [
-      2,
-      3
-    ],
-    "Horn Maestro": [
-      1,
-      2
-    ],
-    "Hunger Resistance": [
-      1,
-      2,
-      3
-    ],
-    "Ice Attack": [
-      1,
-      2,
-      3
-    ],
-    "Ice Resistance": [
-      1,
-      2,
-      3
-    ],
-    "Intimidator": [
-      1,
-      2,
-      3
-    ],
-    "Item Prolonger": [
-      1,
-      2,
-      3
-    ],
-    "Latent Power": [
-      1
-    ],
-    "Load Shells": [
-      1,
-      2
-    ],
-    "Marathon Runner": [
-      1,
-      2,
-      3
-    ],
-    "Maximum Might": [
-      1,
-      2
-    ],
-    "Mind's Eye": [
-      1,
-      2,
-      3
-    ],
-    "Mushroomancer": [
-      1,
-      2
-    ],
-    "Normal/Rapid Up": [
-      1
-    ],
-    "Offensive Guard": [
-      1,
-      2,
-      3
-    ],
-    "Opening Shot": [
-      1,
-      2,
-      3
-    ],
-    "Paralysis Attack": [
-      1,
-      2,
-      3
-    ],
-    "Paralysis Functionality": [
-      1
-    ],
-    "Paralysis Resistance": [
-      1,
-      2,
-      3
-    ],
-    "Partbreaker": [
-      1,
-      2
-    ],
-    "Peak Performance": [
-      1,
-      2
-    ],
-    "Piercing Shot": [
-      1
-    ],
-    "Poison Attack": [
-      2,
-      3
-    ],
-    "Poison Boost": [
-      1
-    ],
-    "Poison Functionality": [
-      1
-    ],
-    "Poison Resistance": [
-      1,
-      2,
-      3
-    ],
-    "Power Prolonger": [
-      1,
-      2,
-      3
-    ],
-    "Protective Polish": [
-      1,
-      2,
-      3
-    ],
-    "Punishing Draw": [
-      1,
-      2,
-      3
-    ],
-    "Quick Sheath": [
-      1,
-      2,
-      3
-    ],
-    "Rapid Fire Up": [
-      1
-    ],
-    "Rapid Morph": [
-      1,
-      2,
-      3
-    ],
-    "Razor Sharp": [
-      1,
-      2,
-      3
-    ],
-    "Recovery Speed": [
-      1,
-      2,
-      3
-    ],
-    "Recovery Up": [
-      1,
-      2,
-      3
-    ],
-    "Resentment": [
-      1,
-      2
-    ],
-    "Sleep Attack": [
-      1,
-      2,
-      3
-    ],
-    "Sleep Functionality": [
-      1
-    ],
-    "Sleep Resistance": [
-      1,
-      2,
-      3
-    ],
-    "Slugger": [
-      1,
-      2,
-      3
-    ],
-    "Special Ammo Boost": [
-      1,
-      2
-    ],
-    "Speed Eating": [
-      1,
-      2,
-      3
-    ],
-    "Speed Sharpening": [
-      1,
-      2
-    ],
-    "Spread/Power Shot": [
-      1
-    ],
-    "Stamina Surge": [
-      1,
-      2
-    ],
-    "Stamina Thief": [
-      1,
-      2,
-      3
-    ],
-    "Stun Resistance": [
-      1,
-      2,
-      3
-    ],
-    "Tetrad Shot": [
-      1,
-      2,
-      3
-    ],
-    "Thunder Attack": [
-      1,
-      2,
-      3
-    ],
-    "Thunder Resistance": [
-      1,
-      2,
-      3
-    ],
-    "Tool Specialist": [
-      2,
-      3
-    ],
-    "Tremor Resistance": [
-      1,
-      2,
-      3
-    ],
-    "Water Attack": [
-      1,
-      2,
-      3
-    ],
-    "Water Resistance": [
-      1,
-      2,
-      3
-    ],
-    "Weakness Exploit": [
-      1
-    ],
-    "Wide-Range": [
-      2,
-      4
-    ],
-    "Windproof": [
-      1,
-      2,
-      3
-    ]
-  },
-  "skillNames": [
-    "Adrenaline Rush",
-    "Agitator",
-    "Airborne",
-    "Ambush",
-    "Antivirus",
-    "Aquatic/Amphibious",
-    "Artillery",
-    "Attack Boost",
-    "Ballistics",
-    "Bind Resistance",
-    "Blast Attack",
-    "Blast Functionality",
-    "Blastblight Resistance",
-    "Bleeding Resistance",
-    "Blight Resistance",
-    "Bludgeoner",
-    "Bombardier",
-    "Botanist",
-    "Burst",
-    "Charge Master",
-    "Charge Up",
-    "Coalescence",
-    "Constitution",
-    "Counterstrike",
-    "Critical Boost",
-    "Critical Draw",
-    "Critical Element",
-    "Critical Eye",
-    "Critical Status",
-    "Defense Boost",
-    "Defense Down Resistance",
-    "Divine Blessing",
-    "Dragon Attack",
-    "Dragon Resistance",
-    "Earplugs",
-    "Elemental Conversion",
-    "Elemental Exploit",
-    "Environmental Adaptability",
-    "Environmental Exploiter",
-    "Evade Extender",
-    "Evade Window",
-    "Exhaust Functionality",
-    "Fire Attack",
-    "Fire Resistance",
-    "Flayer",
-    "Flinch Free",
-    "Focus",
-    "Foul Resistance",
-    "Free Meal",
-    "Geologist",
-    "Guard",
-    "Guard Up",
-    "Handicraft",
-    "Heroics",
-    "Horn Maestro",
-    "Hunger Resistance",
-    "Ice Attack",
-    "Ice Resistance",
-    "Intimidator",
-    "Item Prolonger",
-    "Latent Power",
-    "Load Shells",
-    "Marathon Runner",
-    "Maximum Might",
-    "Mind's Eye",
-    "Mushroomancer",
-    "Normal/Rapid Up",
-    "Offensive Guard",
-    "Opening Shot",
-    "Paralysis Attack",
-    "Paralysis Functionality",
-    "Paralysis Resistance",
-    "Partbreaker",
-    "Peak Performance",
-    "Piercing Shot",
-    "Poison Attack",
-    "Poison Boost",
-    "Poison Functionality",
-    "Poison Resistance",
-    "Power Prolonger",
-    "Protective Polish",
-    "Punishing Draw",
-    "Quick Sheath",
-    "Rapid Fire Up",
-    "Rapid Morph",
-    "Razor Sharp",
-    "Recovery Speed",
-    "Recovery Up",
-    "Resentment",
-    "Sleep Attack",
-    "Sleep Functionality",
-    "Sleep Resistance",
-    "Slugger",
-    "Special Ammo Boost",
-    "Speed Eating",
-    "Speed Sharpening",
-    "Spread/Power Shot",
-    "Stamina Surge",
-    "Stamina Thief",
-    "Stun Resistance",
-    "Tetrad Shot",
-    "Thunder Attack",
-    "Thunder Resistance",
-    "Tool Specialist",
-    "Tremor Resistance",
-    "Water Attack",
-    "Water Resistance",
-    "Weakness Exploit",
-    "Wide-Range",
-    "Windproof"
   ]
 };
