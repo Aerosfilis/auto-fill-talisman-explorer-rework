@@ -33,7 +33,7 @@ Happy Hunting!
 			table { width:100%; border-collapse:collapse; margin-top:14px; font-size:14px; }
 			th,td { border-bottom:1px solid var(--border); text-align:left; padding:8px; vertical-align: top; }
 			th { color:var(--muted); font-weight:600; }
-			.grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:16px; }
+			.grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:16px; margin-top: 16px;}
 			.section-card { background:#0f1622; border:1px solid var(--border); border-radius:12px; padding:12px; }
 			.section-card h3 { margin:0 0 8px 0; }
 			.banner-img { display: block; max-width: 100%; height: auto; margin: 0 auto 20px; border-radius: 12px; }
@@ -63,8 +63,15 @@ Happy Hunting!
 					</table>
 				</details>
 
-				<h2 style="margin-top:18px;">Groups</h2>
-				<div id="groupGrid" class="grid"></div>
+        <details>
+          <summary>Groups <span id="groupCount" class="pill"></span></summary>
+				  <div id="groupGrid" class="grid"></div>
+        </details>
+
+        <details>
+          <summary>Group Sets<span id="groupSetCount" class="pill"></span></summary>
+				  <div id="groupSetGrid" class="grid"></div>
+        </details>
 			</div>
 		</div>
 	</body>
@@ -87,10 +94,15 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   const groups = DATA.groups || {};
+  const sets = DATA.sets || [];
 
-  // 1) All Skills & Levels (from DATA.levelsByName)
 
-  const skills_all = Object.entries(groups).flatMap((group) => group[1]);
+
+  ////////////////////////////
+  // 1) All Skills & Levels //
+  ////////////////////////////
+
+  const skills_all = groups.flatMap((group) => group.skills);
 
   var skills_grouped = {};
   for (const skill of skills_all) {
@@ -107,25 +119,31 @@ document.addEventListener("DOMContentLoaded", () => {
     const tr = document.createElement("tr");
     const tdName = document.createElement("td");
     tdName.textContent = name;
+    
     const tdLvls = document.createElement("td");
     tdLvls.textContent = Array.isArray(levels) ? levels.join(", ") : "";
+    
     tr.appendChild(tdName);
     tr.appendChild(tdLvls);
     tbody.appendChild(tr);
   }
 
-  const count = document.getElementById("skillCount");
-  if (count) count.textContent = `${skills_grouped_sorted.length} skills`;
+  const skill_count = document.getElementById("skillCount");
+  if (skill_count) skill_count.textContent = `${skills_grouped_sorted.length} skills`;
 
 
-  // 2) Groups (from DATA.groups)
-  const groupGrid = document.getElementById("groupGrid");
 
-  for (const [group, skills] of Object.entries(groups)){
+  ///////////////
+  // 2) Groups //
+  ///////////////
+
+  const group_grid = document.getElementById("groupGrid");
+
+  for (const {name, skills} of groups){
 
     const card = document.createElement("div");
     card.className = "section-card";
-    card.innerHTML = `<h3>${group} <span class="pill">${skills.length} skills</span> </h3>`;
+    card.innerHTML = `<h3>${name} <span class="pill">${skills.length} skills</span> </h3>`;
 
     const table = document.createElement("table");
     table.innerHTML = "<thead><tr><th>Skill</th><th>Skill Lv.</th></tr></thead>";
@@ -147,8 +165,92 @@ document.addEventListener("DOMContentLoaded", () => {
 
     table.appendChild(tb);
     card.appendChild(table);
-    groupGrid.appendChild(card);
+    group_grid.appendChild(card);
   }
+
+  const group_count = document.getElementById("groupCount");
+  if (group_count) group_count.textContent = `${Object.entries(groups).length} groups`;
+
+
+  
+  ///////////////////
+  // 3) Group Sets //
+  ///////////////////
+
+  const group_set_grid = document.getElementById("groupSetGrid");
+
+  for (set of sets) {
+    var set_appended = [];
+    set.groups.forEach((group) => set_appended.push(groups[group].skills));
+    const skills_all = set_appended.flatMap((group) => group).flatMap((skill) => skill.name).filter((skill, idx, self) => (self.indexOf(skill) == idx)).sort((a, b) => a[0].localeCompare(b[0], "en", {sensitivity: "base"}));
+
+    const card = document.createElement("div");
+    card.className = "section-card";
+    card.innerHTML = `<h3>${set.name} <span class="pill">${skills_all.length} skills</span> </h3>`;
+    card.innerHTML += set.desc;
+
+    const table = document.createElement("table");
+    const th = document.createElement("thead");
+
+    const tr1 = document.createElement("tr");
+    tr1.innerHTML = `<td>Skill</td><td colspan="${set.groups.length}">Group and Level</td>`;
+    th.appendChild(tr1);
+
+    const tr2 = document.createElement("tr");
+    const td1 = document.createElement("td");
+    td1.textContent = "";
+    tr2.appendChild(td1);
+
+    for (group of set.groups) {
+      const tdn = document.createElement("td");
+      tdn.textContent = "G"+(Number(group)+1);
+      tr2.append(tdn);
+    }
+
+    th.appendChild(tr2);
+    table.appendChild(th);
+
+    const tb = document.createElement("tbody");
+
+    for (skill of skills_all){
+      const tr = document.createElement("tr");
+      const td1 = document.createElement("td");
+      td1.textContent = skill;
+      tr.appendChild(td1);
+
+      for (group of set.groups) {
+        const tdn = document.createElement("td");
+        const skill_listing = groups[group].skills.filter((_skill) => _skill.name == skill);
+        if (skill_listing.length > 0)
+          tdn.textContent = skill_listing[0].level;
+        else
+          tdn.textContent = "-";
+        tr.appendChild(tdn);
+      }
+      tb.appendChild(tr);
+    }
+
+/*    for (const skill of skills) {
+      const tr = document.createElement("tr");
+      const td1 = document.createElement("td");
+      td1.textContent = skill.name;
+
+      const td2 = document.createElement("td");
+      td2.textContent = skill.level || "—";
+
+      tr.appendChild(td1);
+      tr.appendChild(td2);
+      tb.appendChild(tr);
+    }
+*/
+    table.appendChild(tb);
+    card.appendChild(table);
+    group_set_grid.appendChild(card);
+
+  }
+
+  const group_set_count = document.getElementById("groupSetCount");
+  if (group_set_count) group_set_count.textContent = `${sets.length} sets`;
 });
 
 </script>
