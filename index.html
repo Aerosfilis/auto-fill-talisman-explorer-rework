@@ -70,6 +70,9 @@ Happy Hunting!
 			.muted-link:visited { color:var(--muted); }
 
       .header-link { color: var(--accent2); text-decoration: none; }
+      
+      details { border:1px solid var(--border); border-radius:12px; padding:10px 12px; background:#0f1622; margin:14px 0; }
+      h2 { display: inline;}
 		</style>
 	</head>
 	<body>
@@ -78,103 +81,118 @@ Happy Hunting!
         <h1>
           AFTER v0.1 [WIP] <span style="font-size: small; color: var(--muted);">- MHWilds v1.02.01</span>
         </h1>
-        <h2>
-					<img src="./GlowKitty.png" class="title-icon" alt="Icon" />
-          Auto Fill Talisman Explorer Rework by <a href="https://bsky.app/profile/aerosfilis.bsky.social" target="_blank" rel="noopener" class="header-link">
-          Aerosfilis</a>
-        </h2>
-				<h2>
-					<img src="./gaijinhunter.png" class="title-icon" alt="Icon" />
-          Original <a href="https://aevanko.github.io/talisman-explorer/" target="_blank" rel="noopener" class="header-link">
-          Talisman Explorer</a> by <a href="https://youtu.be/AzK352RP5o4" target="_blank" rel="noopener" class="header-link">
-          Gaijinhunter</a>
-				</h2>
+        <p style="color: var(--muted)">
+          When I was looking at skills for the random talisman system, I noticed that groups ressemble each other and which group you can roll also follows the same sub-set logic. <br>
+          I decided to make a similar tool as what Gaijin Hunter did but taking into account this specificity.<br>
+          This also means I reworked the data format to allow for a new way to look at the possible skills.<br>
+          Since this broke Aevanko's tool I decided to change it to work with the new data format and keep it in case anyone wants to use it too.<br>
+          <br>
+          <a class="muted-link" href="./skills.html"> 📕 Skill &amp; Group Reference</a>
+        </p>
+        <details>
+          <summary>
+            <h2>
+              <img src="./gaijinhunter.png" class="title-icon" alt="Icon" />
+              Original <a href="https://aevanko.github.io/talisman-explorer/" target="_blank" rel="noopener" class="header-link">
+              Talisman Explorer</a> by <a href="https://youtu.be/AzK352RP5o4" target="_blank" rel="noopener" class="header-link">
+              Gaijinhunter</a>
+            </h2>
+          </summary>
+          <p style="color: var(--muted);">
+            Pick up to 3 skills. Matching is order-agnostic.
+          </p>
 
-				<p style="color: var(--muted);">
-					Pick up to 3 skills. Matching is order-agnostic.
-					<span style="margin: 0 10px;">|</span>
-					<a class="muted-link" href="./skills.html"> 📕 Skill &amp; Group Reference</a>
-				</p>
+          <div class="row" id="selectors">
+            <div>
+              <label>Skill A</label>
+              <select id="skillA">
+                <option value="">— (choose a skill)</option>
+              </select>
+              <label style="margin-top:6px;">Level (A)</label>
+              <select id="levelA">
+                <option value="">Any level</option>
+              </select>
+            </div>
+            <div>
+              <label>Skill B</label>
+              <select id="skillB">
+                <option value="">— (optional)</option>
+              </select>
+              <label style="margin-top:6px;">Level (B)</label>
+              <select id="levelB">
+                <option value="">Any level</option>
+              </select>
+            </div>
+            <div>
+              <label>Skill C</label>
+              <select id="skillC">
+                <option value="">— (optional)</option>
+              </select>
+              <label style="margin-top:6px;">Level (C)</label>
+              <select id="levelC">
+                <option value="">Any level</option>
+              </select>
+            </div>
+            <div>
+              <label>Sample size</label>
+              <input id="limit" type="number" value="5000" min="100" step="100" />
+            </div>
+          </div>
+          <br />
+          <div class="row">
+            <div style="grid-column: 1 / -1;">
+              <label style="display:block; margin-bottom:6px; color:#94a3b8;">Filter by Slots (optional)</label>
+              <div id="slotChecks" class="slot-grid"></div>
+            </div>
+          </div>
 
-				<div class="row" id="selectors">
-					<div>
-						<label>Skill A</label>
-						<select id="skillA">
-							<option value="">— (choose a skill)</option>
-						</select>
-						<label style="margin-top:6px;">Level (A)</label>
-						<select id="levelA">
-							<option value="">Any level</option>
-						</select>
-					</div>
-					<div>
-						<label>Skill B</label>
-						<select id="skillB">
-							<option value="">— (optional)</option>
-						</select>
-						<label style="margin-top:6px;">Level (B)</label>
-						<select id="levelB">
-							<option value="">Any level</option>
-						</select>
-					</div>
-					<div>
-						<label>Skill C</label>
-						<select id="skillC">
-							<option value="">— (optional)</option>
-						</select>
-						<label style="margin-top:6px;">Level (C)</label>
-						<select id="levelC">
-							<option value="">Any level</option>
-						</select>
-					</div>
-					<div>
-						<label>Sample size</label>
-						<input id="limit" type="number" value="5000" min="100" step="100" />
-					</div>
-				</div>
-				<br />
-				<div class="row">
-					<div style="grid-column: 1 / -1;">
-						<label style="display:block; margin-bottom:6px; color:#94a3b8;">Filter by Slots (optional)</label>
-						<div id="slotChecks" class="slot-grid"></div>
-					</div>
-				</div>
+          <div class="row">
+            <div class="controls-row">
+              <button id="clearBtn" type="button">Clear All</button>
+              <button id="runBtn">Search</button>
+            </div>
+          </div>
 
-				<div class="row">
-					<div class="controls-row">
-						<button id="clearBtn" type="button">Clear All</button>
-						<button id="runBtn">Search</button>
-					</div>
-				</div>
+          <div id="summary" class="muted" style="margin-top:8px;"></div>
+          <hr class="div" />
 
-				<div id="summary" class="muted" style="margin-top:8px;"></div>
-				<hr class="div" />
+          <table id="aggTable">
+            <thead>
+              <tr>
+                <th>Rarity</th>
+                <th>Selected Levels</th>
+                <th>Slot Variant</th>
+                <th>Total</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
 
-				<table id="aggTable">
-					<thead>
-						<tr>
-							<th>Rarity</th>
-							<th>Selected Levels</th>
-							<th>Slot Variant</th>
-							<th>Total</th>
-						</tr>
-					</thead>
-					<tbody></tbody>
-				</table>
+          <h2 id="detailTitle" style="margin-top:20px;">Talismans found:</h2>
+          <table id="detailTable">
+            <thead>
+              <tr>
+                <th>Rarity</th>
+                <th>Slots</th>
+                <th>Skill 1</th>
+                <th>Skill 2</th>
+                <th>Skill 3</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </details>
 
-				<h2 id="detailTitle" style="margin-top:20px;">Talismans found:</h2>
-				<table id="detailTable">
-					<thead>
-						<tr>
-							<th>Rarity</th>
-							<th>Slots</th>
-							<th>Skill 1</th>
-							<th>Skill 2</th>
-							<th>Skill 3</th>
-						</tr>
-					</thead>
-					<tbody></tbody>
-				</table>
+        <details>
+          <summary>
+            <h2>
+              <img src="./GlowKitty.png" class="title-icon" alt="Icon" />
+              Auto Fill Talisman Explorer Rework by <a href="https://bsky.app/profile/aerosfilis.bsky.social" target="_blank" rel="noopener" class="header-link">
+              Aerosfilis</a>
+            </h2>
+          </summary>
+          <h1>WIP</h1>
+        </details>
 			</div>
 		</div>
 
