@@ -1,3 +1,5 @@
+// MAKE SURE THE FORMATTING IS RIGHT OR IT WILL BREAK EVERYTHING
+
 const DATA = {
   "groups": {
     "Group 1": [

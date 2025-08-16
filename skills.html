@@ -86,12 +86,24 @@ document.addEventListener("DOMContentLoaded", () => {
     return;
   }
 
+  const groups = DATA.groups || {};
+
   // 1) All Skills & Levels (from DATA.levelsByName)
+
+  const skills_all = Object.entries(groups).flatMap((group) => group[1]);
+
+  var skills_grouped = {};
+  for (const skill of skills_all) {
+    if (skills_grouped.hasOwnProperty(skill.name) && !skills_grouped[skill.name].includes(skill.level))
+      skills_grouped[skill.name].push(skill.level);
+    else
+      skills_grouped[skill.name] = [skill.level];
+  }
+
+  const skills_grouped_sorted = Object.entries(skills_grouped).sort((a, b) => a[0].localeCompare(b[0], "en", {sensitivity: "base"}));
+
   const tbody = document.querySelector("#allSkills tbody");
-  const entries = Object.entries(DATA.levelsByName || {}).sort((a, b) =>
-    a[0].localeCompare(b[0]),
-  );
-  for (const [name, levels] of entries) {
+  for (const [name, levels] of skills_grouped_sorted) {
     const tr = document.createElement("tr");
     const tdName = document.createElement("td");
     tdName.textContent = name;
@@ -101,55 +113,33 @@ document.addEventListener("DOMContentLoaded", () => {
     tr.appendChild(tdLvls);
     tbody.appendChild(tr);
   }
+
   const count = document.getElementById("skillCount");
-  if (count) count.textContent = `${entries.length} skills`;
+  if (count) count.textContent = `${skills_grouped_sorted.length} skills`;
+
 
   // 2) Groups (from DATA.groups)
   const groupGrid = document.getElementById("groupGrid");
-  const groups = DATA.groups || {};
-  const groupNames = Object.keys(groups).sort((a, b) => {
-    const na = parseInt((a.match(/\d+/) || [])[0] || "9999", 10);
-    const nb = parseInt((b.match(/\d+/) || [])[0] || "9999", 10);
-    return na - nb || a.localeCompare(b);
-  });
 
-  for (const g of groupNames) {
-    const arr = groups[g] || [];
-    // Map: skill name -> set of levels observed in this group
-    const m = new Map();
-    for (const it of arr) {
-      if (!it || !it.name) continue;
-      // skip anything with null level or not in skillNames list
-      if (it.level === null) continue;
-      if (!DATA.skillNames.includes(it.name)) continue;
-
-      if (!m.has(it.name)) m.set(it.name, new Set());
-      m.get(it.name).add(it.level);
-    }
-    const rows = Array.from(m.entries())
-      .map(([name, set]) => ({
-        name,
-        levels: [...set].sort((a, b) => a - b).join(", "),
-      }))
-      .sort((a, b) => a.name.localeCompare(b.name));
+  for (const [group, skills] of Object.entries(groups)){
 
     const card = document.createElement("div");
     card.className = "section-card";
-    card.innerHTML = `<h3>${g}
-      <span class="pill">${rows.length} skills</span>
-    </h3>`;
+    card.innerHTML = `<h3>${group} <span class="pill">${skills.length} skills</span> </h3>`;
 
     const table = document.createElement("table");
-    table.innerHTML =
-      "<thead><tr><th>Skill</th><th>Skill Lv.</th></tr></thead>";
+    table.innerHTML = "<thead><tr><th>Skill</th><th>Skill Lv.</th></tr></thead>";
+
     const tb = document.createElement("tbody");
 
-    for (const r of rows) {
+    for (const skill of skills) {
       const tr = document.createElement("tr");
       const td1 = document.createElement("td");
-      td1.textContent = r.name;
+      td1.textContent = skill.name;
+
       const td2 = document.createElement("td");
-      td2.textContent = r.levels || "—";
+      td2.textContent = skill.level || "—";
+
       tr.appendChild(td1);
       tr.appendChild(td2);
       tb.appendChild(tr);
