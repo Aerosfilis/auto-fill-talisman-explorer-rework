@@ -106,9 +106,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   var skills_grouped = {};
   for (const skill of skills_all) {
-    if (skills_grouped.hasOwnProperty(skill.name) && !skills_grouped[skill.name].includes(skill.level))
-      skills_grouped[skill.name].push(skill.level);
-    else
+    if (skills_grouped.hasOwnProperty(skill.name)) {
+      if (!skills_grouped[skill.name].includes(skill.level))
+        skills_grouped[skill.name].push(skill.level);
+    } else
       skills_grouped[skill.name] = [skill.level];
   }
 
@@ -182,7 +183,7 @@ document.addEventListener("DOMContentLoaded", () => {
   for (set of sets) {
     var set_appended = [];
     set.groups.forEach((group) => set_appended.push(groups[group].skills));
-    const skills_all = set_appended.flatMap((group) => group).flatMap((skill) => skill.name).filter((skill, idx, self) => (self.indexOf(skill) == idx)).sort((a, b) => a[0].localeCompare(b[0], "en", {sensitivity: "base"}));
+    const skills_all = set_appended.flat().flatMap((skill) => skill.name).filter((skill, idx, self) => (self.indexOf(skill) == idx)).sort((a, b) => a[0].localeCompare(b[0], "en", {sensitivity: "base"}));
 
     const card = document.createElement("div");
     card.className = "section-card";
@@ -230,19 +231,6 @@ document.addEventListener("DOMContentLoaded", () => {
       tb.appendChild(tr);
     }
 
-/*    for (const skill of skills) {
-      const tr = document.createElement("tr");
-      const td1 = document.createElement("td");
-      td1.textContent = skill.name;
-
-      const td2 = document.createElement("td");
-      td2.textContent = skill.level || "—";
-
-      tr.appendChild(td1);
-      tr.appendChild(td2);
-      tb.appendChild(tr);
-    }
-*/
     table.appendChild(tb);
     card.appendChild(table);
     group_set_grid.appendChild(card);
