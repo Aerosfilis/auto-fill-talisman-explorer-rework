@@ -140,6 +140,7 @@ function clearAll() {
 function search_talismans() {
 	const skills_requested = readSelection();
 	const slot_filter = getSelectedSlots();
+	const t0 = performance.now();
 
 	var matching_talismans = [];
 	var aggregated_talismans = [];
@@ -158,7 +159,7 @@ function search_talismans() {
 						if (slot_filter.length === 0 || slot_filter.includes(slot)) {
 							const talisman = {rarity: record.rarity, skills: [skill_1, skill_2, {}], slot: slot}
 							matching_talismans.push(talisman);
-							aggregated_talismans = aggregate(aggregated_talismans, talisman);
+							aggregated_talismans = aggregate(aggregated_talismans, talisman, skills_requested);
 						}
 				
 				} else if (record.g3.skills) {
@@ -180,9 +181,9 @@ function search_talismans() {
 		}
 	}
 
-	console.log("Talismans found: "+matching_talismans.length);
-	console.log(aggregated_talismans);
-	render_aggregated(aggregated_talismans, skills_requested);
+	document.getElementById("summary").textContent = `Search Complete (${(performance.now() - t0).toFixed(2)}ms) Total possible talismans: ${matching_talismans.length}`;
+
+	render_aggregated(aggregated_talismans.reverse(), skills_requested);
 	render_sample(matching_talismans);
 }
 
@@ -196,11 +197,13 @@ function aggregate(aggregated_talismans, matched_talisman, skills_requested) {
 		}
 	}
 	
+	var matching_skill = skills_requested.map((skill) => matched_talisman.skills.find((_skill) => _skill.name === skill.name));
 	if (existing_index === -1)
-		aggregated_talismans.push({rarity: matched_talisman.rarity, slot: matched_talisman.slot, amount: 1})
-	else
+		aggregated_talismans.push({rarity: matched_talisman.rarity, slot: matched_talisman.slot, skills: matching_skill, amount: 1});
+	else {
 		aggregated_talismans[existing_index].amount++;
-
+		aggregated_talismans[existing_index].skills.map((skill, idx) => matching_skill[idx].level < skill.level ? matching_skill[idx] : skill.level);
+	}
 	return aggregated_talismans;
 }
 
@@ -267,28 +270,6 @@ function makeOptions(selector, items, first) {
 	}
 }
 
-//function matchesSelectedSkills(pickSet, req) {
-//	if (req.length === 0) return false;
-//	for (const r of req) {
-//		let ok = false;
-//		for (const raw of pickSet) {
-//			if (r.level == null) {
-//				if (raw.startsWith(r.name)) {
-//					ok = true;
-//					break;
-//				}
-//			} else {
-//				if (raw === r.name + " +" + r.level) {
-//					ok = true;
-//					break;
-//				}
-//			}
-//		}
-//		if (!ok) return false;
-//	}
-//	return true;
-//}
-
 function readSelection() {
 	const skill_A = document.getElementById("skillA").value;
 	const skill_B = document.getElementById("skillB").value;
@@ -313,7 +294,6 @@ function refreshLevelOptions(skill_selector, level_selector) {
 	makeOptions(
 		level_selector,
 		levels,
-		"Any level",
 	);
 }
 
