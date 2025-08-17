@@ -129,29 +129,34 @@ function search_talismans() {
 		if (skills_requested.filter((skill) => record.skill_names.includes(skill.name)).length === 0
 			|| (slot_filter.length > 0 && slot_filter.filter((slots) => !record.slots.includes(slots)).length !== 0)) continue;
 
+		// Loops through all 3 possible skills on the charm, removing from the list of requested one if there's a match
 		for (const skill_1 of record.g1.skills) {
-			
 			const requested_left = skills_requested.filter((skill) => skill.name !== skill_1.name || skill.level > skill_1.level);
 			for (const skill_2 of record.g2.skills) {
 
+				// Stops here if the charm can't have a 3rd skill and check tha all requested skills have been assigned
 				if ((!record.g3.skills && requested_left.filter((skill) => skill.name !== skill_2.name || skill.level > skill_2.level).length === 0)
 						&& skill_1.name !== skill_2.name ){
+
+					// loops over possible deco slots and check if all skills requested were assigned
 					for (const slot of record.slots)
 						if (slot_filter.length === 0 || slot_filter.includes(slot)) {
+
 							const talisman = {rarity: record.rarity, skills: [skill_1, skill_2, {}], slot: slot}
 							matching_talismans.push(talisman);
 							aggregated_talismans = aggregate(aggregated_talismans, talisman, skills_requested);
 						}
 				
 				} else if (record.g3.skills) {
-
 					const requested_left_last = requested_left.filter((skill) => skill.name !== skill_2.name || skill.level > skill_2.level);
 					for (const skill_3 of record.g3.skills) {
 
+						// similar loop for deco slots but with 3 skills instead of 2 + check for assigned requested skills
 						for (const slot of record.slots)
 							if ((requested_left_last.filter((skill) => skill.name !== skill_3.name || skill.level > skill_3.level).length === 0)
 									&& skill_1.name !== skill_2.name && skill_1.name !== skill_3.name && skill_2.name !== skill_3.name
 									&& (slot_filter.length === 0 || slot_filter.includes(slot))) {
+
 								const talisman = {rarity: record.rarity, skills: [skill_1, skill_2, skill_3], slot: slot};
 								matching_talismans.push(talisman);
 								aggregated_talismans = aggregate(aggregated_talismans, talisman, skills_requested);
@@ -206,7 +211,6 @@ function render_sample(talismans) {
 	const tbody = document.querySelector("#detailTable tbody");
 	tbody.innerHTML = "";
 	for (const talisman of talismans.slice(0, max_rows)) {
-		console.log(talisman);
 		var skills_text = ""
 		for (const skill of talisman.skills) {
 			if (!skill.name)
