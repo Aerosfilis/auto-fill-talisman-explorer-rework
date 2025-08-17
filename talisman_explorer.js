@@ -1,3 +1,4 @@
+{
 /////////////////////
 // Const variables //
 /////////////////////
@@ -44,47 +45,27 @@ document.addEventListener("DOMContentLoaded", function () {
 /////////////////////
 
 function populateSelectors() {
-	makeOptions(document.getElementById("skillA"), skill_names, "— (choose a skill)");
-	makeOptions(document.getElementById("skillB"), skill_names, "— (optional)");
-	makeOptions(document.getElementById("skillC"), skill_names, "— (optional)");
-	
-	refreshLevelOptions(
-		document.getElementById("skillA"),
-		document.getElementById("levelA"),
-	);
-	refreshLevelOptions(
-		document.getElementById("skillB"),
-		document.getElementById("levelB"),
-	);
-	refreshLevelOptions(
-		document.getElementById("skillC"),
-		document.getElementById("levelC"),
-	);
- 
-	document
-		.getElementById("skillA")
-		.addEventListener("change", () =>
+	const __selector_ids = [
+		["skillA", "levelA"],
+		["skillB", "levelB"],
+		["skillC", "levelC"]
+	]
+
+	for (const selector of __selector_ids) {
+		makeOptions(document.getElementById(selector[0]), skill_names, "— (choose a skill)");
 			refreshLevelOptions(
-				document.getElementById("skillA"),
-				document.getElementById("levelA"),
-			),
-		);
-	document
-		.getElementById("skillB")
-		.addEventListener("change", () =>
-			refreshLevelOptions(
-				document.getElementById("skillB"),
-				document.getElementById("levelB"),
-			),
-		);
-	document
-		.getElementById("skillC")
-		.addEventListener("change", () =>
-			refreshLevelOptions(
-				document.getElementById("skillC"),
-				document.getElementById("levelC"),
-			),
-		);
+			document.getElementById(selector[0]),
+			document.getElementById(selector[1]),
+		); 
+		document
+			.getElementById(selector[0])
+			.addEventListener("change", () =>
+				refreshLevelOptions(
+					document.getElementById(selector[0]),
+					document.getElementById(selector[1]),
+				),
+			);
+	}
 }
 
 function renderSlotChecks() {
@@ -180,7 +161,7 @@ function search_talismans() {
 			}
 		}
 	}
-
+	
 	document.getElementById("summary").textContent = `Search Complete (${(performance.now() - t0).toFixed(2)}ms) Total possible talismans: ${matching_talismans.length}`;
 
 	render_aggregated(aggregated_talismans.reverse(), skills_requested);
@@ -300,4 +281,9 @@ function refreshLevelOptions(skill_selector, level_selector) {
 function skillsInGroup(g) {
 	if (!DATA.groups[g]) return [];
 	return DATA.groups[g].skills || [];
+}
+
+
+
+
 }
