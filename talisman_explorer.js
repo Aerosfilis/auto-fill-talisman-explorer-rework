@@ -231,12 +231,6 @@ function render_sample(talismans) {
 // Utilities //
 ///////////////
 
-function baseName(raw) {
-	if (!raw) return "";
-	const i = raw.indexOf(" +");
-	return (i === -1 ? raw : raw.slice(0, i)).trim();
-}
-
 function getSelectedSlots() {
 	const out = [];
 	document
@@ -288,11 +282,6 @@ function refreshLevelOptions(skill_selector, level_selector) {
 		level_selector,
 		levels,
 	);
-}
-
-function skillsInGroup(g) {
-	if (!DATA.groups[g]) return [];
-	return DATA.groups[g].skills || [];
 }
 
 
