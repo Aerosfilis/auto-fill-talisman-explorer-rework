@@ -204,13 +204,21 @@ function render_aggregated(aggregated_talismans, skills_requested) {
 function render_sample(talismans) {
 	max_rows = document.getElementById("limit").value;
 	const tbody = document.querySelector("#detailTable tbody");
-	tbody.innerHTML = talismans.slice(0, max_rows).map((talisman) =>
-		`<tr><td><span class="pill">${talisman.rarity}</span></td>
-		<td>${talisman.slot}</td>
-		<td>${talisman.skills[0].name} +${talisman.skills[0].level}</td>
-		<td>${talisman.skills[1].name} +${talisman.skills[1].level}</td>
-		<td>${talisman.skills[2].name} +${talisman.skills[1].level}</td></tr>`
-	).join("");
+	tbody.innerHTML = "";
+	for (const talisman of talismans.slice(0, max_rows)) {
+		console.log(talisman);
+		var skills_text = ""
+		for (const skill of talisman.skills) {
+			if (!skill.name)
+				skills_text += `<td> - </td>`;
+			else
+				skills_text += `<td>${skill.name} +${skill.level}</td>`;
+		}
+		tbody.innerHTML +=
+			`<tr><td><span class="pill">${talisman.rarity}</span></td>
+			<td>${talisman.slot}</td>
+			${skills_text}</tr>`;
+	}
 }
 
 
